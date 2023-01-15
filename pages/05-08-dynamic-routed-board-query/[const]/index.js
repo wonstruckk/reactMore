@@ -14,10 +14,6 @@ const FETCH_BOARD = gql`
 export default function StaticRoutedPage() {
   const router = useRouter();
 
-  //useQuery문은 페이지에 들어오자마자 요청이 바로 들어간다,특정행동안하더라도.
-  //쿼리를 요청할때는 fetchBoard가 없기 때문에 undefined가 발생하게 된다.
-  //data를 받아오는 와중인데 비동기처리를 해서 return부의화면이 나오지만, 데이터는 못받아옴.
-  //useQuery는 async await사용 불가.
   const { data } = useQuery(FETCH_BOARD, {
     variables: {
       number: Number(router.query.const),
@@ -34,3 +30,8 @@ export default function StaticRoutedPage() {
     </>
   );
 }
+
+//useQuery문은 페이지에 들어오자마자 요청이 바로 들어간다, 특정행동안하더라도.
+//쿼리를 요청할때는 fetchBoard가 없기 때문에 undefined가 발생하게 된다.
+//data를 받아오는 와중인데 비동기처리를 해서 return부의화면이 나오지만, 데이터는 못받아옴.
+//useQuery는 async await사용 불가.
