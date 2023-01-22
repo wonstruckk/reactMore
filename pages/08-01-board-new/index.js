@@ -23,6 +23,13 @@ export default function BoardNewPage() {
     setIsSection3(true);
   };
 
+  // Use console.log() for debugging
+  const [isActive, setIsActive] = useState(false);
+
+  const onClickHandler = (event) => {
+    setIsActive((prev) => !prev);
+  };
+
   return (
     <>
       {/* <h1>등록페이지</h1>
@@ -51,6 +58,17 @@ export default function BoardNewPage() {
         section title3
       </button>
       {isSection3 ? <div>섹션3</div> : <></>}
+      <div className="tabs">
+        <button
+          className={isActive ? "btn" : "btn-active"}
+          onClick={onClickHandler}
+          disabled={"btn-active" ? true : false}
+        >
+          Section title 1
+        </button>
+        <button className="btn">Section title 2</button>
+        <div className="view">Content of section 1</div>
+      </div>
     </>
   );
 }
