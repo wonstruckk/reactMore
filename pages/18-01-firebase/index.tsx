@@ -5,6 +5,8 @@ import {
   getFirestore,
 } from "firebase/firestore/lite";
 
+import { firebaseApp } from "../../src/commons/libraries/firebase";
+
 export default function FireBasePage() {
   const onClickSubmit = async () => {
     const board = collection(getFirestore(firebaseApp), "board");
