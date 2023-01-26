@@ -11,6 +11,8 @@ interface IApolloSettingProps {
 
 import { createUploadLink } from "apollo-upload-client";
 
+const GLOBAL_STATE = new InMemoryCache();
+
 export default function ApolloSetting(props: IApolloSettingProps) {
   const uploadLink = createUploadLink({
     uri: "http://backendonline.codebootcamp.co.kr/graphql",
@@ -18,7 +20,8 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 
   const client = new ApolloClient({
     link: ApolloLink.from([uploadLink]),
-    cache: new InMemoryCache(),
+    cache: GLOBAL_STATE,
+    // cache: new InMemoryCache(), 페이지 전환(app_tsx리랜더 되어도) 캐시 유지
   });
 
   // prettier-ignore
