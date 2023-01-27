@@ -7,6 +7,7 @@ import {
 import Modal from "antd/es/modal/Modal";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../src/commons/store";
+import { useRouter } from "next/router";
 
 const LOGIN_USER = gql`
   mutation loginUser($email: String!, $password: String!) {
@@ -17,6 +18,7 @@ const LOGIN_USER = gql`
 `;
 
 export default function LoginPage() {
+  const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const [loginUser] = useMutation<
     Pick<IMutation, "loginUser">,
@@ -52,6 +54,7 @@ export default function LoginPage() {
       setAccessToken(accessToken);
 
       // 3. login 성공 페이지로 이동.
+      router.push("/22-02-login-success");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.meesage });
     }
