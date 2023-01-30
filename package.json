@@ -20,6 +20,7 @@
     "antd": "^5.1.4",
     "apollo-upload-client": "^17.0.0",
     "axios": "^1.2.2",
+    "dompurify": "^2.4.3",
     "firebase": "^9.16.0",
     "graphql": "^16.6.0",
     "lodash": "^4.17.21",
