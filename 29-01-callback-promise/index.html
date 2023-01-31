@@ -59,16 +59,15 @@
           })
           .then((res) => {
             return axios.get(`http://numbersapi.com/random?min=1&max=200`);
-          });
-          .then((res)=>{
-            return '끝'
           })
+          .then((res) => {
+            return "끝";
+          });
       };
 
       // promise가 아니면 기다리지 않는다 await는.
       const myAsyncAwait = async () => {
-        await axios.get(`http://numbersapi.com/random?min=1&max=200`)
-
+        await axios.get(`http://numbersapi.com/random?min=1&max=200`);
       };
     </script>
   </head>
