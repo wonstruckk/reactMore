@@ -23,6 +23,7 @@
     "dompurify": "^2.4.3",
     "firebase": "^9.16.0",
     "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
     "lodash": "^4.17.21",
     "next": "12.1.0",
     "react": "17.0.2",
