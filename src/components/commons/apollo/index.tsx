@@ -51,10 +51,16 @@ export default function ApolloSetting(props: IApolloSettingProps) {
 
   // 3. useEffect 방법, 프리랜더링 무시
   useEffect(() => {
-    console.log("지금 브라우저다");
-    const result = localStorage.getItem("accessToken");
-    console.log(result);
-    if (result) setAccessToken(result);
+    // // 1. 기존방식(refresh이전)
+    // console.log("지금 브라우저다");
+    // const result = localStorage.getItem("accessToken");
+    // console.log(result);
+    // if (result) setAccessToken(result);
+
+    // 2. refreshToken방식
+    void getAccessToken().then((newAccessToken) => {
+      setAccessToken(newAccessToken);
+    });
   }, []);
 
   // useQuery,mutation의 에러만 컨트롤한다.
