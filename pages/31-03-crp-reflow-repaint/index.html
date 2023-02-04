@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>리플로우/리페인트</title>
+    <style>
+      .qwer {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+      .qwer:hover {
+        width: 120px;
+        height: 120px;
+      }
+
+      .asdf {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+
+      .asdf:hover {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- layout이 붙으면 자동적으로 Paint가 따라붙는다(당연함) -->
+    <!-- 페이지 최적화시에 고민을 해보아야 한다. -->
+    <div class="qwer">reflow prac</div>
+    <div class="asdf">repaint prac</div>
+  </body>
+</html>
