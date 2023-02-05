@@ -32,10 +32,10 @@ export default function GraphqlMutationPage() {
     IMutationUploadFileArgs
   >(UPLOAD_FILE);
 
-  const [myFunction] = useMutation(CREATE_BOARD);
   const [writer, setWriter] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+  const [myFunction] = useMutation(CREATE_BOARD);
 
   const writerHandler = (event) => {
     setWriter(event.target.value);
