@@ -83,6 +83,7 @@ export default function ImageUploadPage() {
     fileReader.readAsDataURL(file);
     fileReader.onload = (event) => {
       if (typeof event.target?.result === "string") {
+        // event.target은 tag만을 가리키지 않음.
         setImageUrl(event.target?.result);
         setFile(file)
       }

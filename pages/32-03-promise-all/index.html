@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>promise vs promise.all</title>
+    <script>
+      // await이 있으면 async가 감싼 펑션이 마이크로큐로 들어간다.
+      const startPromise = async () => {
+        console.time("==== 개별 Promise ====");
+        const result1 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("성공");
+          }, 2000);
+        });
+
+        const result2 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("성공");
+          }, 3000);
+        });
+
+        const result3 = await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("성공");
+          }, 1000);
+        });
+        console.timeEnd("==== 개별 Promise ====");
+      };
+
+      //////////////////////////////////////////////////////
+
+      const startPromiseAll = async () => {
+        // await Promise.all([promise, promise, promise]);
+        // promise전체를 한번에 비동기처리해줌.
+        console.time("==== Promise.all ====");
+        await Promise.all([
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("성공");
+            }, 2000);
+          }),
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("성공");
+            }, 3000);
+          }),
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve("성공");
+            }, 1000);
+          }),
+        ]);
+        console.timeEnd("==== Promise.all ====");
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="">Promise 연습하기</button>
+    <button onclick="">Promise.all 연습하기</button>
+  </body>
+</html>
